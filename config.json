@@ -1,0 +1,9 @@
+{
+  "remoteServerURL": "https://172.20.117.253",
+  "localfileMapping": {
+    "/webacs/lib/storm/ems/neinfo/": "/Users/xichen/Documents/storm/chassisview/ems/ems-ui/src/storm/ems/neinfo/",
+    "/webacs/lib/storm/device/device360/": "/Users/xichen/Documents/storm/base_ui/webacs/base_ui/src/main/webapp/applications/storm/device/device360/",
+    "/webacs/lib/storm/util/": "/Users/xichen/Documents/storm/base_ui/webacs/base_ui/src/main/webapp/applications/storm/util/"
+  },
+  "proxyServerPort": 5050
+}
