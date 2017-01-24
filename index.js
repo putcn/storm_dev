@@ -45,6 +45,9 @@ var server = https.createServer({
           case '.jpg':
               contentType = 'image/jpg';
               break;
+          case ".txt":
+              contentType = "text/plain";
+              break;
       }
 
       fs.readFile(realFilePath, function(error, content) {
