@@ -5,6 +5,7 @@ var https = require('https'),
     fs = require('fs'),
     config = require('./config.json'),
     url = require('url'),
+    _harRemix = require("har-remix"),
     path = require('path');
 
 console.log("creating proxy gateway");
