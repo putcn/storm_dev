@@ -8,6 +8,15 @@ var https = require('https'),
     _harRemix = require("har-remix"),
     path = require('path');
 
+var extMIMEMapping = {
+  "js": 'text/javascript',
+  "css": "text/css",
+  "json": "application/json",
+  "png": "image/png",
+  "jpg": "image/jpg",
+  "txt": "text/plain"
+}
+
 console.log("creating proxy gateway");
 
 var proxy = httpProxy.createProxyServer({});
@@ -29,28 +38,7 @@ var server = https.createServer({
       realFilePath = (realFilePath.split("?"))[0]; //remove "?" from path
       console.log(realFilePath);
       var extname = path.extname(realFilePath);
-      var contentType = 'text/html';
-      switch (extname) {
-          case '.js':
-              contentType = 'text/javascript';
-              break;
-          case '.css':
-              contentType = 'text/css';
-              break;
-          case '.json':
-              contentType = 'application/json';
-              break;
-          case '.png':
-              contentType = 'image/png';
-              break;      
-          case '.jpg':
-              contentType = 'image/jpg';
-              break;
-          case ".txt":
-              contentType = "text/plain";
-              break;
-      }
-
+      var contentType = extMIMEMapping[extname,replace(".", "")] || 'text/html';
       fs.readFile(realFilePath, function(error, content) {
         if (error) {
             if(error.code == 'ENOENT'){
