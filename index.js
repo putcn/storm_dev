@@ -38,7 +38,7 @@ var server = https.createServer({
       realFilePath = (realFilePath.split("?"))[0]; //remove "?" from path
       console.log(realFilePath);
       var extname = path.extname(realFilePath);
-      var contentType = extMIMEMapping[extname,replace(".", "")] || 'text/html';
+      var contentType = extMIMEMapping[extname.replace(".", "")] || 'text/html';
       fs.readFile(realFilePath, function(error, content) {
         if (error) {
             if(error.code == 'ENOENT'){
