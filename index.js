@@ -70,5 +70,14 @@ var server = https.createServer({
   
   
 });
+
+
+server.on('upgrade', function (req, socket, head) {
+  proxy.ws(req, socket, head, {
+    target: config.remoteServerURL,
+    secure: false
+  });
+});
+
 server.listen(config.proxyServerPort);
 console.log("proxy gateway created, listing on port", config.proxyServerPort);
